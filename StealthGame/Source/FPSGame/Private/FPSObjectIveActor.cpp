@@ -3,6 +3,7 @@
 
 #include "FPSObjectIveActor.h"
 #include <Kismet/GameplayStatics.h>
+#include <LogMacros.h>
 
 // Sets default values
 AFPSObjectIveActor::AFPSObjectIveActor()
@@ -13,7 +14,10 @@ AFPSObjectIveActor::AFPSObjectIveActor()
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
 	MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	RootComponent = MeshComp;
-
+	if (!MeshComp)
+	{
+		/*UE_LOG(LogTemp, Error, TEXT("%s MeshComp not found"), GetComponents)*/
+	}
 	SphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
 	SphereComp->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	SphereComp->SetCollisionResponseToAllChannels(ECR_Ignore);
