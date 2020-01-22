@@ -33,9 +33,6 @@ protected:
 	void PlayEffects();
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 	/**borrowed from actor class, override function in this case */
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 };
