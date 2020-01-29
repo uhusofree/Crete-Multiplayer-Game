@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include <Components/StaticMeshComponent.h>
 #include <Components/SphereComponent.h>
+#include <Sound/SoundBase.h>
 #include "FPSObjectIveActor.generated.h"
 
 UCLASS()
@@ -29,6 +30,10 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "FX")
 	UParticleSystem* PickUpFX;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Sound")
+	USoundBase* ObjectPickeUpSound;
+
 
 	void PlayEffects();
 

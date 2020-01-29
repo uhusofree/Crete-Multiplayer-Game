@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include <SubclassOf.h>
 #include "FPSGameMode.generated.h"
 
 UCLASS()
@@ -11,6 +12,9 @@ class AFPSGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
+protected:
+	UPROPERTY(EditDefaultsOnly, Category = "GameOverView")
+	TSubclassOf<AActor> GameOverViewActors;
 public:
 
 	AFPSGameMode();

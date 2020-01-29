@@ -13,10 +13,7 @@ AFPSObjectIveActor::AFPSObjectIveActor()
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
 	MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	RootComponent = MeshComp;
-	if (!MeshComp)
-	{
-		/*UE_LOG(LogTemp, Error, TEXT("%s MeshComp not found"), GetComponents)*/
-	}
+	
 	SphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
 	SphereComp->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	SphereComp->SetCollisionResponseToAllChannels(ECR_Ignore);
@@ -46,6 +43,7 @@ void AFPSObjectIveActor::NotifyActorBeginOverlap(AActor* OtherActor)
 	Super::NotifyActorBeginOverlap(OtherActor);
 
 	PlayEffects();
+	UGameplayStatics::PlaySound2D(this, ObjectPickeUpSound);
 
 	AFPSCharacter* MyCharacter = Cast<AFPSCharacter>(OtherActor);
 	if (MyCharacter)
