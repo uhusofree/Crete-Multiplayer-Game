@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include <Engine/EngineTypes.h>
 #include "FPSAIGuard.generated.h"
 
 class UPawnSensingComponent;
@@ -28,6 +29,12 @@ protected:
 		void OnPawnSeen(APawn* SeenPawn);
 	UFUNCTION()
 		void OnNoiseHeard(APawn* NoiseInstigator, const FVector& Location, float Volume);
+	UFUNCTION()
+		void ResetRotation();
+
+	FTimerHandle TimerHandler_ResetRotation;
+
+	FRotator OriginalRotation;
 
 public:
 	// Called every frame

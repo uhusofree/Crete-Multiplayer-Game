@@ -93,6 +93,8 @@ void AFPSCharacter::MoveForward(float Value)
 		// add movement in that direction
 		AddMovementInput(GetActorForwardVector(), Value);
 	}
+
+	/*MakeNoise(1.0f, Instigator);*/
 }
 
 
@@ -103,4 +105,5 @@ void AFPSCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(GetActorRightVector(), Value);
 	}
+	/*MakeNoise(1.0f, Instigator);*/
 }

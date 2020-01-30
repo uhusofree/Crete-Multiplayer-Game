@@ -42,7 +42,7 @@ void AFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPr
 	}
 	//used to notify onheardnoise method is goes through the character class that has noiseemitter
 	UE_LOG(LogTemp, Warning, TEXT("Collision OnHit"));
+
 	MakeNoise(1.0f, Instigator);
 	Destroy();
-
 }
